@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="470.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
+   <children>
+      <Pane layoutX="64.0" layoutY="128.0" prefHeight="304.0" prefWidth="342.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="129.0" layoutY="63.0" text="UMUSIC">
+               <font>
+                  <Font name="Bauhaus 93" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombre_usuario" layoutX="73.0" layoutY="127.0" prefHeight="25.0" prefWidth="216.0" promptText="Nombre de Usuario">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </TextField>
+            <Label layoutX="73.0" layoutY="247.0" text="¿no tienes cuenta?">
+               <font>
+                  <Font name="Bauhaus 93" size="13.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="cuenta_nueva" layoutX="190.0" layoutY="243.0" onAction="#crear_cuenta" text="Click aquí">
+               <font>
+                  <Font name="Bauhaus 93" size="13.0" />
+               </font>
+            </Hyperlink>
+            <Button fx:id="log" layoutX="145.0" layoutY="292.0" mnemonicParsing="false" onAction="#logIn" prefHeight="28.0" prefWidth="60.0" text="Login">
+               <font>
+                  <Font name="Bauhaus 93" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="43.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="25.0" layoutX="47.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/contraseña.png" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="contrasenia" layoutX="73.0" layoutY="187.0" prefHeight="25.0" prefWidth="216.0" promptText="Contraseña">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font></PasswordField>
+         </children>
+      </Pane>
+      <ImageView fitHeight="112.0" fitWidth="122.0" layoutX="176.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/auriculares (1).png" />
+         </image>
+      </ImageView>
+      <Button fx:id="boton_cerrar" layoutX="438.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="28.0" prefWidth="33.0" text="X">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

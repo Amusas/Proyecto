@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="530.0" style="-fx-background-color: blue;" fx:controller="Controller.Crud_canciones" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="14.0" layoutY="33.0" prefHeight="267.0" prefWidth="376.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="188.0" layoutY="183.0" mnemonicParsing="false" text="Añadir">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="boton_subir" layoutX="26.0" layoutY="183.0" mnemonicParsing="false" onAction="#subir_camcion" text="Subir Cancion">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/artista.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/CancionCrud.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="boton_volver" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#volver" text="volver">
+         <font>
+            <Font name="Bauhaus 93" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="campo_artista" layoutX="39.0" layoutY="86.0" prefHeight="25.0" prefWidth="201.0" promptText="Nombre Artista">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="campo_cancion" layoutX="39.0" layoutY="154.0" prefHeight="25.0" prefWidth="201.0" promptText="Nombre cancion">
+         <font>
+            <Font name="Bauhaus 93" size="12.0" />
+         </font>
+      </TextField>
+      <ImageView fitHeight="145.0" fitWidth="139.0" layoutX="307.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/Cancion.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
