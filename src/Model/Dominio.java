@@ -3,13 +3,14 @@ package Model;
 import Exceptions.MyUtils;
 import Exceptions.StringNuloOrVacioException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Dominio {
+public class Dominio implements Serializable {
 
     final private String NOMBRE = "Umusic";
-    ArrayList<Usuario> usuarios = new ArrayList<>();
-    ArrayList<Artista> artistas = new ArrayList<>();
+     ArrayList<Usuario> usuarios = new ArrayList<>();
+     ArrayList<Artista> artistas = new ArrayList<>();
     ArrayList<Cancion> canciones = new ArrayList<>();
 
     //CRUD Usuario
@@ -72,5 +73,17 @@ public class Dominio {
 
     public ArrayList<Cancion> getCanciones() {
         return canciones;
+    }
+
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void setArtistas(ArrayList<Artista> artistas) {
+        this.artistas = artistas;
+    }
+
+    public void setCanciones(ArrayList<Cancion> canciones) {
+        this.canciones = canciones;
     }
 }

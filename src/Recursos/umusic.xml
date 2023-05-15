@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="18.0.2" class="java.beans.XMLDecoder">
+ <object class="Model.Dominio" id="Dominio0">
+  <void property="artistas">
+   <void method="add">
+    <object class="Model.Artista">
+     <void property="contrasenia">
+      <string>321</string>
+     </void>
+     <void property="nombreArtista">
+      <string>Muse</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="usuarios">
+   <void method="add">
+    <object class="Model.Usuario">
+     <void property="contrasenia">
+      <string>123</string>
+     </void>
+     <void property="nombre">
+      <string>Andres</string>
+     </void>
+     <void property="nombreUsuario">
+      <string>Amusea</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

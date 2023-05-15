@@ -6,22 +6,21 @@ import Exceptions.StringNuloOrVacioException;
 import Librerias.ArbolBinario;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class Artista {
+public class Artista extends Usuario implements Serializable {
 
     //atributos
-    private String nombreArtista, contrasenia;
     private ArbolBinario<String, Cancion> listaCanciones = new ArbolBinario<>();
 
     public Artista() {}
 
     public Artista(String nombreArtista, String contrasenia) {
-        this.nombreArtista = nombreArtista;
-        this.contrasenia = contrasenia;
+        super(nombreArtista, contrasenia);
     }
 
 
@@ -29,7 +28,7 @@ public class Artista {
     public void crearCancion(String titulo, File cancion) throws StringNuloOrVacioException {
         if (cancion == null) throw new NullPointerException("No se ha seleccionado un archivo");
         MyUtils.validarSiNuloOrVacio(titulo);
-        Cancion c = new Cancion(titulo, this.nombreArtista, cancion);
+        Cancion c = new Cancion(titulo, this.nombreUsuario, cancion);
         this.listaCanciones.agregar(c.getTitulo(), c);
         Singleton.getInstance().anadir_cancion(c);//con esto se añade tambien la cancion a todas las canciones deisponibles
 
@@ -56,11 +55,11 @@ public class Artista {
     }
 
     public String getNombreArtista() {
-        return nombreArtista;
+        return nombreUsuario;
     }
 
     public void setNombreArtista(String nombreArtista) {
-        this.nombreArtista = nombreArtista;
+        this.nombreUsuario = nombreArtista;
     }
 
 

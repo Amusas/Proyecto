@@ -8,6 +8,7 @@ import Model.Usuario;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class Singleton {
         return SingletonHolder.E_INSTANCE;
     }
 
-    public Dominio getUniversidad() {return umusic;}
+    public Dominio getDominio() {return umusic;}
 
     /**
      * este metodo crea un usuario en la plataforma
@@ -119,44 +120,12 @@ public class Singleton {
     }
 
 
-    /**
-     * Este metodo llama a guardar empleados de persistencia y guaradar productos
-     */
-    public void iniciarSalvarDatos() {
-        try {
-            Persistencia.cargarDatosArchivos(getUniversidad());
-            JOptionPane.showMessageDialog(null, "Datos Guardados correctamente!!!!");
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void guardarDominio() throws IOException {
+        Persistencia.guardarDominio(umusic);
     }
 
-    public void guardarXml () throws Exception {
-        Persistencia.guardarArchivoSerializado(umusic);
-        JOptionPane.showMessageDialog(null, "Datos Guardados!!!");
-    }
-
-    public void cargarxml () throws Exception {
-        this.umusic = (Dominio) Persistencia.cargarArchivoSerializado();
-        JOptionPane.showMessageDialog(null, "Datos Cargados!!!");
-    }
-
-    /**
-     * Con este metodo llama a el metodo de cargar Datos de persistencia, imprimiendo un mensaje de que se cargo satisfactoriamente
-     */
-    public void cargarDatosDesdeArchivos() {
-
-        Dominio umus = new Dominio();
-        try {
-            Persistencia.cargarDatosArchivos(getUniversidad());
-            ArrayList <Usuario> users = umus.getUsuarios();
-            JOptionPane.showMessageDialog(null, "Datos Cargados!!!!");
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void cargarDominio() throws IOException {
+        umusic = (Dominio) Persistencia.cargarDominio();
     }
 
     /**
@@ -167,7 +136,7 @@ public class Singleton {
         return umusic.getArtistas();
     }
 
-    public void setDominio(Dominio servicio_Umusic) {this.umusic = servicio_Umusic;}
+    public void setDominio(Dominio servicio_Umusic) {umusic = servicio_Umusic;}
 
 
 }

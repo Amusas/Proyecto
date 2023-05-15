@@ -55,6 +55,11 @@
                <font>
                   <Font name="Bauhaus 93" size="12.0" />
                </font></PasswordField>
+            <Label fx:id="campo_errores" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="229.0" prefHeight="14.0" prefWidth="342.0" textAlignment="CENTER" textFill="#ff0000e4">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <ImageView fitHeight="112.0" fitWidth="122.0" layoutX="176.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">

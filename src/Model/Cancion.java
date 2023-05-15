@@ -1,8 +1,9 @@
 package Model;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class Cancion {
+public class Cancion implements Serializable {
 
     //atributos
     private String titulo, nombre_artista;
@@ -41,4 +42,6 @@ public class Cancion {
     public void setArchivo_cancion(File archivo_cancion) {
         this.archivo_cancion = archivo_cancion;
     }
+
+
 }

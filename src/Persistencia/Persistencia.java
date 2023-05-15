@@ -15,7 +15,7 @@ public class Persistencia {
     private final static String RUTA_TXT_USUARIOS = "src/Recursos/usuarios.txt";
     private final static String RUTA_TXT_CANCIONES = "src/Recursos/canciones.txt";
     private final static String RUTA_TXT_ARTISTAS = "src/Recursos/artistas.txt";
-    private final static String RUTA_TXT_UMUSIC_COPIA = "src/Recursos/umusic.txt";
+    private final static String RUTA_TXT_UMUSIC = "src/Recursos/umusic.xml";
     private final static String RUTA_TXT_LOGG = "src/Recursos/logg.txt";
 
     public static void cargarDatosArchivos(Dominio umusic) throws FileNotFoundException, IOException {
@@ -65,14 +65,6 @@ public class Persistencia {
         ArchivoUtil.guardarArchivo(RUTA_TXT_CANCIONES, contenido, false);
     }
 
-    public static void guardarArchivoSerializado(Dominio umusic) throws Exception {
-        ArchivoUtil.salvarRecursoSerializadoXML(RUTA_TXT_UMUSIC_COPIA, umusic);
-    }
-
-    public static Object cargarArchivoSerializado() throws Exception {
-        Dominio umusic = (Dominio) ArchivoUtil.cargarRecursoSerializadoXML(RUTA_TXT_UMUSIC_COPIA);
-        return umusic;
-    }
 
 
     public static void crearLogg (String mensajeLog, int nivel, String accion) {
@@ -140,6 +132,15 @@ public class Persistencia {
             canciones.add(c);
         }
         return canciones;
+    }
+
+    public static void guardarDominio(Dominio dominio) throws IOException {
+        ArchivoUtil.salvarRecursoSerializadoXML(RUTA_TXT_UMUSIC, dominio);
+    }
+
+    public static Object cargarDominio() throws IOException {
+        Object o = ArchivoUtil.cargarRecursoSerializadoXML(RUTA_TXT_UMUSIC);
+        return o;
     }
 
 }

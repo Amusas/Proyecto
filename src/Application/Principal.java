@@ -1,5 +1,6 @@
 package Application;
 
+import Controller.Singleton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +12,8 @@ public class Principal extends Application{
 
     private Stage primaryStage;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        Singleton.getInstance().cargarDominio();
         launch(args);
     }
 

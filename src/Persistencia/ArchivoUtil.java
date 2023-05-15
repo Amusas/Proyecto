@@ -9,6 +9,11 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 /**
@@ -207,6 +212,22 @@ public  class ArchivoUtil {
         codificadorXML.close();
 
     }
+
+    public static void guardarDominio(Object dominio, String path) {
+        Gson gson = new Gson();
+        String json = gson.toJson(dominio);
+
+        try (FileWriter fileWriter = new FileWriter("Dominio")) {
+            fileWriter.write(json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
 
 
 

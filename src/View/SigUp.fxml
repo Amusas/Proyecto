@@ -55,17 +55,17 @@
                   <Font name="Bauhaus 93" size="12.0" />
                </font>
             </PasswordField>
-            <CheckBox fx:id="check_usuario" layoutX="23.0" layoutY="27.0" mnemonicParsing="false" text="Usuario">
+            <CheckBox fx:id="check_usuario" layoutX="23.0" layoutY="27.0" mnemonicParsing="false" onAction="#check_Usuario" text="Usuario">
                <font>
                   <Font name="Bauhaus 93" size="12.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="check_Artista" layoutX="262.0" layoutY="27.0" mnemonicParsing="false" text="Artista">
+            <CheckBox fx:id="check_Artista" layoutX="262.0" layoutY="27.0" mnemonicParsing="false" onAction="#check_artista" text="Artista">
                <font>
                   <Font name="Bauhaus 93" size="12.0" />
                </font>
             </CheckBox>
-            <Label layoutX="157.0" layoutY="264.0" text="Error" textFill="#ff0000ea">
+            <Label fx:id="campo_error" alignment="CENTER" layoutY="264.0" prefHeight="14.0" prefWidth="335.0" textFill="#ff0000ea">
                <font>
                   <Font name="Bauhaus 93" size="12.0" />
                </font>

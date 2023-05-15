@@ -2,7 +2,9 @@ package Model;
 
 import Librerias.ListaCircular;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     String nombre, nombreUsuario, contrasenia;
     ListaCircular<Cancion> playList = new ListaCircular<>();
@@ -10,6 +12,11 @@ public class Usuario {
     //constructor
     public Usuario(String nombre, String nombreUsuario, String contrasenia) {
         this.nombre = nombre;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasenia = contrasenia;
+    }
+
+    public Usuario(String nombreUsuario, String contrasenia) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
     }
@@ -44,5 +51,11 @@ public class Usuario {
     }
 
     public Usuario() {
+    }
+
+    public Usuario(Usuario u) {
+        nombre = u.getNombre();
+        nombreUsuario = u.getNombreUsuario();
+        contrasenia = u.getContrasenia();
     }
 }
