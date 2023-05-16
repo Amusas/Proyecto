@@ -1,9 +1,12 @@
 package Librerias;
 
-public class ArbolBinario<K extends Comparable<K>, V> {
-    private Nodo raiz;
+import java.io.Serializable;
 
-    private class Nodo {
+public class ArbolBinario<K extends Comparable<K>, V> implements Serializable {
+    private Nodo raiz;
+    private int len;
+
+    private class Nodo implements Serializable{
         private K clave;
         private V valor;
         private Nodo izquierdo;
@@ -13,6 +16,38 @@ public class ArbolBinario<K extends Comparable<K>, V> {
             this.clave = clave;
             this.valor = valor;
         }
+
+        public K getClave() {
+            return clave;
+        }
+
+        public void setClave(K clave) {
+            this.clave = clave;
+        }
+
+        public V getValor() {
+            return valor;
+        }
+
+        public void setValor(V valor) {
+            this.valor = valor;
+        }
+
+        public Nodo getIzquierdo() {
+            return izquierdo;
+        }
+
+        public void setIzquierdo(Nodo izquierdo) {
+            this.izquierdo = izquierdo;
+        }
+
+        public Nodo getDerecho() {
+            return derecho;
+        }
+
+        public void setDerecho(Nodo derecho) {
+            this.derecho = derecho;
+        }
     }
 
     public void agregar(K clave, V valor) {
@@ -21,6 +56,7 @@ public class ArbolBinario<K extends Comparable<K>, V> {
 
     private Nodo agregar(Nodo nodo, K clave, V valor) {
         if (nodo == null) {
+            len++;
             return new Nodo(clave, valor);
         }
 
@@ -101,4 +137,47 @@ public class ArbolBinario<K extends Comparable<K>, V> {
         nodo.izquierdo = eliminarMin(nodo.izquierdo);
         return nodo;
     }
+
+    public K buscarPorIndice(int indice) {
+        return buscarPorIndice(raiz, new int[]{0}, indice);
+    }
+
+    private K buscarPorIndice(Nodo nodo, int[] contador, int indice) {
+        if (nodo == null) {
+            return null;
+        }
+
+        K resultado = buscarPorIndice(nodo.izquierdo, contador, indice);
+        if (resultado != null) {
+            return resultado;
+        }
+
+        if (contador[0] == indice) {
+            return nodo.clave;
+        }
+        contador[0]++;
+
+        return buscarPorIndice(nodo.derecho, contador, indice);
+    }
+
+    public int length (){
+        return len;
+    }
+
+    public Nodo getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(Nodo raiz) {
+        this.raiz = raiz;
+    }
+
+    public int getLen() {
+        return len;
+    }
+
+    public void setLen(int len) {
+        this.len = len;
+    }
+
 }

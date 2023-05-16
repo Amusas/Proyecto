@@ -5,10 +5,7 @@ import Model.Cancion;
 import Model.Dominio;
 import Persistencia.Persistencia;
 import Model.Usuario;
-
-import javax.swing.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,11 +14,13 @@ public class Singleton {
 
     static private Dominio umusic = new Dominio();
 
+    //Singleton para que solo exista una sola instancia del dominio en el proyecto
     private static class SingletonHolder { private final static Singleton E_INSTANCE = new Singleton();}
 
     public static Singleton getInstance() {
         return SingletonHolder.E_INSTANCE;
     }
+
 
     public Dominio getDominio() {return umusic;}
 
@@ -82,6 +81,13 @@ public class Singleton {
         }
     }
 
+    public Artista buscarArtistaValor(String nombreArtista) {
+        Artista a = this.umusic.leerArtista(nombreArtista);
+        System.out.println(nombreArtista);
+        //si el Artista se encuentra en la lista de usuarios, devuelve true ya que existe
+        return a;
+    }
+
     public void anadir_cancion (Cancion c){
         this.umusic.agregar_cancion(c);
     }
@@ -90,7 +96,7 @@ public class Singleton {
      * crea un artista en el servicio
      * @param nombreArtista
      */
-    public void crearCancion(String titulo ,String nombreArtista, File cancion) {
+    public void crearCancion(String titulo ,String nombreArtista, String cancion) {
         try {
             Artista a = this.umusic.leerArtista(nombreArtista);
             a.crearCancion(titulo, cancion);
@@ -115,15 +121,28 @@ public class Singleton {
         }
     }
 
+    /**
+     * este metodo crea un log de las acciones que hagan los usuarios
+     * @param mensajeLog
+     * @param nivel
+     * @param accion
+     */
     public void registroLog (String mensajeLog, int nivel, String accion){
         Persistencia.crearLogg(mensajeLog, nivel, accion);
     }
 
-
+    /**
+     * este metodo crea la persistencia de todo el proyecto
+     * @throws IOException
+     */
     public void guardarDominio() throws IOException {
         Persistencia.guardarDominio(umusic);
     }
 
+    /**
+     * este metodo carga los datos del archivo en donde esta la base de datos
+     * @throws IOException
+     */
     public void cargarDominio() throws IOException {
         umusic = (Dominio) Persistencia.cargarDominio();
     }

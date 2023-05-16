@@ -10,8 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import javax.swing.*;
 import java.io.IOException;
 
 public class Login {
@@ -82,10 +80,12 @@ public class Login {
             if (usuario.getContrasenia().equals(contrasenia)) {
                 if (a != null){
                     //si la Cuenta es artista, se cambia a la ventana del artista
-                    cambiar_Ventana("/View/Vista_Principal_Admin.fxml");
+                    Singleton.getInstance().registroLog("el artista: " + usuario.getNombreUsuario() + " ha iniciado sesion", 1, "Login");
+                    cambiar_Ventana_Artista("/View/Vista_Principal_Artista.fxml", (Artista) usuario);
                 }else if (u != null){
                     //si la Cuenta es Usuario, se cambia a la Ventana Usuario
-                    cambiar_Ventana("/View/Vista_Principal_Usuario.fxml");
+                    Singleton.getInstance().registroLog("el usuario: " + usuario.getNombreUsuario() + " ha iniciado sesion", 1, "Login");
+                    cambiar_Ventana_User("/View/Vista_Principal_Usuario.fxml", usuario);
                 }
             } else {
                 campo_errores.setText("Contraseña Incorrecta");
@@ -100,6 +100,15 @@ public class Login {
                 this.nombre_usuario.setText("");
             }
         }
+    }
+
+    private void cambiar_Ventana_Artista(String path, Artista user) throws IOException {
+        UserSesion.getInstance(user.getContrasenia(), user.getNombreUsuario());
+        Stage stage = (Stage) boton_cerrar.getScene().getWindow();
+        stage.close();
+        Singleton.getInstance().registroLog("ha iniciado sesion el artista: " + user.getNombreUsuario(), 1, "login" );
+        Vista_Principal_Artista vista = new Vista_Principal_Artista();
+        vista.init(path);
     }
 
     /**
@@ -124,23 +133,12 @@ public class Login {
      * @param path
      * @throws IOException
      */
-    private void cambiar_Ventana(String path) throws IOException {
+    private void cambiar_Ventana_User(String path, Usuario u) throws IOException {
         Stage stage = (Stage) boton_cerrar.getScene().getWindow();
         stage.close();
-
-        // Load the new FXML file
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(path));
-        Parent root = loader.load();
-
-        // Create the scene and set it as the root of the primary stage
-        Scene scene = new Scene(root);
-        Stage primaryStage = new Stage();
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        // Show the primary stage
-        primaryStage.show();
+        Vista_Principal_Usuario vista = new Vista_Principal_Usuario();
+        UserSesion.getInstance(u.getContrasenia(), u.getNombreUsuario());
+        vista.init(path);
     }
 
     /**

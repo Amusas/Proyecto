@@ -3,12 +3,32 @@
  <object class="Model.Dominio" id="Dominio0">
   <void property="artistas">
    <void method="add">
-    <object class="Model.Artista">
+    <object class="Model.Artista" id="Artista0">
      <void property="contrasenia">
       <string>321</string>
      </void>
+     <void property="listaCanciones">
+      <void property="len">
+       <int>1</int>
+      </void>
+     </void>
      <void property="nombreArtista">
       <string>Muse</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="canciones">
+   <void method="add">
+    <object class="Model.Cancion">
+     <void property="archivo_cancion">
+      <string>C:\Users\HP 245 RYZEN 3\Music\deemix Music\Alvaro Torres - De Que Me Sirve Quererte.flac</string>
+     </void>
+     <void property="nombre_artista">
+      <string>Muse</string>
+     </void>
+     <void property="titulo">
+      <string>Sober</string>
      </void>
     </object>
    </void>

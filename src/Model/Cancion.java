@@ -7,12 +7,12 @@ public class Cancion implements Serializable {
 
     //atributos
     private String titulo, nombre_artista;
-    private File archivo_cancion;
+    private String archivo_cancion;
 
     public Cancion() {}
 
     //constructor
-    public Cancion(String titulo, String nombre_artista, File archivo_cancion) {
+    public Cancion(String titulo, String nombre_artista, String archivo_cancion) {
         this.titulo = titulo;
         this.nombre_artista = nombre_artista;
         this.archivo_cancion = archivo_cancion;
@@ -36,10 +36,10 @@ public class Cancion implements Serializable {
     }
 
     public String getArchivo_cancion() {
-        return archivo_cancion.getPath();
+        return archivo_cancion;
     }
 
-    public void setArchivo_cancion(File archivo_cancion) {
+    public void setArchivo_cancion(String archivo_cancion) {
         this.archivo_cancion = archivo_cancion;
     }
 

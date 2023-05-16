@@ -44,7 +44,7 @@ public class Dominio implements Serializable {
     public Artista leerArtista(String nombreArtista) {
         if (nombreArtista != null) {
             for (Artista a : artistas) {
-                if (a.getNombreArtista().equals(nombreArtista))
+                if (a.nombreUsuario.equals(nombreArtista))
                     return a;
             }
         }

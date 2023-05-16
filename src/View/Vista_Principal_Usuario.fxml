@@ -30,7 +30,12 @@
       <TextField fx:id="campo_buscar" layoutX="38.0" layoutY="50.0" prefHeight="25.0" prefWidth="300.0" />
       <Button fx:id="boton_buscar" contentDisplay="GRAPHIC_ONLY" layoutX="345.0" layoutY="50.0" mnemonicParsing="false" onAction="#buscar" prefHeight="25.0" prefWidth="22.0" />
       <Button fx:id="boton_agregar" contentDisplay="GRAPHIC_ONLY" layoutX="2.0" layoutY="50.0" mnemonicParsing="false" onAction="#agregar_canciones" prefHeight="25.0" prefWidth="32.0" text="+" />
-      <Button layoutX="345.0" mnemonicParsing="false" text="X" />
+      <Button fx:id="boton_atras" layoutX="345.0" mnemonicParsing="false" onAction="#atras" text="X" />
       <ListView fx:id="lista_canciones" layoutX="16.0" layoutY="87.0" prefHeight="464.0" prefWidth="339.0" />
+      <Label fx:id="label_bienvenida" layoutX="14.0" layoutY="12.0" prefHeight="25.0" prefWidth="300.0" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

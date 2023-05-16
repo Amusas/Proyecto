@@ -1,7 +1,5 @@
 package Controller;
 
-import Exceptions.StringNuloOrVacioException;
-import Model.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,6 +59,11 @@ public class SigUp {
         }
     }
 
+    /**
+     * este metodo cierra la ventana actual y regresa a la ventana login
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void cerrar_ventana(ActionEvent event) throws IOException {
         Stage stage = (Stage) boton_cerrar.getScene().getWindow();
@@ -82,6 +85,11 @@ public class SigUp {
         primaryStage.show();
     }
 
+    /**
+     * contiene la logica de crear un usuario y artista
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void crear_usuario(ActionEvent event) throws Exception {
 
@@ -89,10 +97,15 @@ public class SigUp {
         String contrasenia = this.contrasenia.getText();
         String user = this.nombre_usuario.getText();
 
+        //si no hay ningun campo vacio procede a crear el usuario/artista
        if (!validarNulo()){
+
+           //verifica que no exista ya el nombre de usuario
            if (Singleton.getInstance().getDominio().leerUsuario(user) != null || Singleton.getInstance().getDominio().leerArtista(user) != null){
                campo_error.setText("este nombre de usuario ya existe");
            }else {
+
+               //dependiendo de que casilla de cuenta este seleccionada, se crea un User o artista
                if (check_usuario.isSelected()){
                    Singleton.getInstance().getDominio().crearUusario(nombre, user, contrasenia);
                    campo_error.setTextFill(Color.GREEN);

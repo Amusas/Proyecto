@@ -17,6 +17,11 @@ public class Artista extends Usuario implements Serializable {
     //atributos
     private ArbolBinario<String, Cancion> listaCanciones = new ArbolBinario<>();
 
+
+    public void setListaCanciones(ArbolBinario<String, Cancion> listaCanciones) {
+        this.listaCanciones = listaCanciones;
+    }
+
     public Artista() {}
 
     public Artista(String nombreArtista, String contrasenia) {
@@ -25,7 +30,7 @@ public class Artista extends Usuario implements Serializable {
 
 
     //CRUD Cancion
-    public void crearCancion(String titulo, File cancion) throws StringNuloOrVacioException {
+    public void crearCancion(String titulo, String cancion) throws StringNuloOrVacioException {
         if (cancion == null) throw new NullPointerException("No se ha seleccionado un archivo");
         MyUtils.validarSiNuloOrVacio(titulo);
         Cancion c = new Cancion(titulo, this.nombreUsuario, cancion);
@@ -62,6 +67,7 @@ public class Artista extends Usuario implements Serializable {
         this.nombreUsuario = nombreArtista;
     }
 
-
-
+    public ArbolBinario<String, Cancion> getListaCanciones() {
+        return listaCanciones;
+    }
 }

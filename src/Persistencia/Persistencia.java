@@ -128,7 +128,6 @@ public class Persistencia {
             Cancion c = new Cancion();
             c.setTitulo(linea.split(",")[0]);
             c.setNombre_artista(linea.split(",")[1]);
-            c.setArchivo_cancion(new File(linea.split(",")[2]));
             canciones.add(c);
         }
         return canciones;
