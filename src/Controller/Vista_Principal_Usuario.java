@@ -1,26 +1,45 @@
 package Controller;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
+import Librerias.ListaCircular;
+import Model.Cancion;
 import Model.Usuario;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
+import javazoom.jl.player.advanced.AdvancedPlayer;
+import javazoom.jl.player.advanced.PlaybackEvent;
+import javazoom.jl.player.advanced.PlaybackListener;
+import javazoom.jlgui.basicplayer.BasicPlayer;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Vista_Principal_Usuario implements Initializable {
 
-    Usuario userSesion;
+    AdvancedPlayer player;
+
+    private int framePos = 0;
+
+    private boolean pausado = false;
+    @FXML
+    private Slider time_slider;
+
+    Usuario u = Singleton.getInstance().getDominio().leerUsuario(UserSesion.getInstance().getUsername());
 
     @FXML
     private Button boton_atras;
@@ -46,11 +65,26 @@ public class Vista_Principal_Usuario implements Initializable {
     @FXML
     private Button boton_agregar;
 
-    @FXML
-    private ListView<?> lista_canciones;
+    private void agregar_songs() {
+        ListaCircular <Cancion> playList = u.getPlayList();
+        ObservableList songs = FXCollections.observableArrayList();;
+        for (int i = 0; i < playList.size(); i++){
+            songs.add(playList.buscar(i).getNombre_artista() + " -- " + playList.buscar(i).getTitulo());
+        }
+        this.lista_canciones.setItems(songs);
+    }
 
     @FXML
-    void agregar_canciones(ActionEvent event) {
+    private ListView<?> lista_canciones = new ListView<>();
+
+
+    @FXML
+    void agregar_canciones(ActionEvent event) throws IOException {
+        Stage stage = (Stage) boton_atras.getScene().getWindow();
+        stage.close();
+
+        agregar_canciones vista = new agregar_canciones();
+        vista.init();
 
     }
 
@@ -69,14 +103,39 @@ public class Vista_Principal_Usuario implements Initializable {
 
     }
 
+
     @FXML
-    void reproducir(ActionEvent event) {
+    void reproducir() {
+            if (!pausado) {
+                new Thread(() -> {
+                    try {
+                        BasicPlayer player1 = new BasicPlayer();
+                        player1.open(new File("C:\\Users\\HP 245 RYZEN 3\\IdeaProjects\\Umusic\\src\\Recursos\\one.wav"));
+                    } catch (BasicPlayerException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).start();
 
-    }
+            } else {
+                player.stop();
+                pausado = false;
+            }
+        }
 
-    public void set_user (Usuario u){
-        this.userSesion = u;
+
+    /*
+    private void configureTimeSlider(AdvancedPlayer mediaPlayer) {
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                if (player != null) {
+                    player.setPosition(newValue.intValue());
+                }
+            }
+        });
     }
+     */
+
 
     /**
      * este metodo inicializa la ventana
@@ -137,6 +196,8 @@ public class Vista_Principal_Usuario implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         label_bienvenida.setText("Bienvenido: " + UserSesion.getInstance(null, null).getUsername());
+        agregar_songs();
     }
+
 }
 

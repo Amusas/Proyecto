@@ -1,0 +1,43 @@
+AnchorPane{
+    -fx-background-image: url('/resources/fondo.png');
+}
+
+Pane{
+    -fx-background-radius: 10 !important;
+}
+
+#boton_cerrar{
+    -fx-background-color: transparent;
+}
+
+#boton_cerrar:hover{
+    -fx-background-color: Red;
+}
+
+#nombre_usuario{
+    -fx-background-color: -fx-control-inner-background;
+    -fx-effect: null;
+    -fx-background-insets: 0;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: transparent transparent skyblue transparent;
+}
+
+#contrasenia{
+    -fx-background-color: -fx-control-inner-background;
+    -fx-effect: null;
+    -fx-background-insets: 0;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: transparent transparent skyblue transparent;
+}
+
+#log{
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-background-color: DarkCyan;
+}
+
+#log:hover{
+    -fx-background-color: DarkTurquoise;
+}

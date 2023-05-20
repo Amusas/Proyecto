@@ -11,6 +11,10 @@ public class UserSesion {
         this.username = username;
     }
 
+    public static UserSesion getInstance() {
+        return instance;
+    }
+
     public static UserSesion getInstance(String userId, String username) {
         if (instance == null) {
             instance = new UserSesion(userId, username);

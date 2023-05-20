@@ -9,5 +9,21 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="gson-2.8.9" level="project" />
+    <orderEntry type="library" name="jflac-1.3" level="project" />
+    <orderEntry type="library" name="jl1.0.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.2/junit-3.8.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="basicplayer-3.0.0.0" level="project" />
+    <orderEntry type="library" name="slf4j-api-2.0.6" level="application" />
+    <orderEntry type="library" name="slf4j-simple-2.0.7" level="project" />
+    <orderEntry type="library" name="jlayer-1.0.1.4" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.12" level="project" />
   </component>
 </module>

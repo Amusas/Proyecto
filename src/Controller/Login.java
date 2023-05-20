@@ -51,6 +51,7 @@ public class Login {
         // Create the scene and set it as the root of the primary stage
         Scene scene = new Scene(root);
         Stage primaryStage = new Stage();
+        scene.getStylesheets().add("/Styles/SigUp.css");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -134,10 +135,10 @@ public class Login {
      * @throws IOException
      */
     private void cambiar_Ventana_User(String path, Usuario u) throws IOException {
+        UserSesion.getInstance(u.getContrasenia(), u.getNombreUsuario());
         Stage stage = (Stage) boton_cerrar.getScene().getWindow();
         stage.close();
         Vista_Principal_Usuario vista = new Vista_Principal_Usuario();
-        UserSesion.getInstance(u.getContrasenia(), u.getNombreUsuario());
         vista.init(path);
     }
 

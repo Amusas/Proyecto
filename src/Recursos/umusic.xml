@@ -9,7 +9,7 @@
      </void>
      <void property="listaCanciones">
       <void property="len">
-       <int>1</int>
+       <int>2</int>
       </void>
      </void>
      <void property="nombreArtista">
@@ -22,13 +22,26 @@
    <void method="add">
     <object class="Model.Cancion">
      <void property="archivo_cancion">
-      <string>C:\Users\HP 245 RYZEN 3\Music\deemix Music\Alvaro Torres - De Que Me Sirve Quererte.flac</string>
+      <string>C:/Users/HP 245 RYZEN 3/Music/deemix Music/Alvaro Torres - De Que Me Sirve Quererte.flac</string>
      </void>
      <void property="nombre_artista">
       <string>Muse</string>
      </void>
      <void property="titulo">
       <string>Sober</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="Model.Cancion">
+     <void property="archivo_cancion">
+      <string>C:/Users/HP 245 RYZEN 3/Music/deemix Music/Baby I m Yours.flac</string>
+     </void>
+     <void property="nombre_artista">
+      <string>Muse</string>
+     </void>
+     <void property="titulo">
+      <string>Invento</string>
      </void>
     </object>
    </void>

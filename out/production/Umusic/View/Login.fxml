@@ -14,11 +14,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="470.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login">
    <children>
+      <Button fx:id="boton_cerrar" layoutX="438.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="28.0" prefWidth="33.0" text="X" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <Pane layoutX="64.0" layoutY="128.0" prefHeight="304.0" prefWidth="342.0" style="-fx-background-color: white;">
          <children>
-            <Label layoutX="129.0" layoutY="63.0" text="UMUSIC">
+            <Label fx:id="campo_errores" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="229.0" prefHeight="14.0" prefWidth="342.0" textAlignment="CENTER" textFill="#ff0000e4">
                <font>
-                  <Font name="Bauhaus 93" size="24.0" />
+                  <Font name="Bauhaus 93" size="12.0" />
                </font>
             </Label>
             <TextField fx:id="nombre_usuario" layoutX="73.0" layoutY="127.0" prefHeight="25.0" prefWidth="216.0" promptText="Nombre de Usuario">
@@ -26,6 +31,10 @@
                   <Font name="Bauhaus 93" size="12.0" />
                </font>
             </TextField>
+            <PasswordField fx:id="contrasenia" layoutX="73.0" layoutY="187.0" prefHeight="25.0" prefWidth="216.0" promptText="Contraseña">
+               <font>
+                  <Font name="Bauhaus 93" size="12.0" />
+               </font></PasswordField>
             <Label layoutX="73.0" layoutY="247.0" text="¿no tienes cuenta?">
                <font>
                   <Font name="Bauhaus 93" size="13.0" />
@@ -36,7 +45,7 @@
                   <Font name="Bauhaus 93" size="13.0" />
                </font>
             </Hyperlink>
-            <Button fx:id="log" layoutX="145.0" layoutY="292.0" mnemonicParsing="false" onAction="#logIn" prefHeight="28.0" prefWidth="60.0" text="Login">
+            <Button fx:id="log" layoutX="120.0" layoutY="292.0" mnemonicParsing="false" onAction="#logIn" prefHeight="36.0" prefWidth="109.0" text="Login">
                <font>
                   <Font name="Bauhaus 93" size="15.0" />
                </font>
@@ -51,13 +60,9 @@
                   <Image url="@../resources/contraseña.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="contrasenia" layoutX="73.0" layoutY="187.0" prefHeight="25.0" prefWidth="216.0" promptText="Contraseña">
+            <Label layoutX="129.0" layoutY="63.0" text="UMUSIC">
                <font>
-                  <Font name="Bauhaus 93" size="12.0" />
-               </font></PasswordField>
-            <Label fx:id="campo_errores" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="229.0" prefHeight="14.0" prefWidth="342.0" textAlignment="CENTER" textFill="#ff0000e4">
-               <font>
-                  <Font name="Bauhaus 93" size="12.0" />
+                  <Font name="Bauhaus 93" size="24.0" />
                </font>
             </Label>
          </children>
@@ -67,10 +72,5 @@
             <Image url="@../resources/auriculares (1).png" />
          </image>
       </ImageView>
-      <Button fx:id="boton_cerrar" layoutX="438.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="28.0" prefWidth="33.0" text="X">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
    </children>
 </AnchorPane>

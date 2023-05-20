@@ -25,7 +25,7 @@
                         <Font name="Bauhaus 93" size="12.0" />
                     </font>
                 </TextField>
-                <Button fx:id="cuenta" layoutX="101.0" layoutY="290.0" mnemonicParsing="false" onAction="#crear_usuario" prefHeight="28.0" prefWidth="140.0" text="Crear Cuenta">
+                <Button fx:id="cuenta" layoutX="88.0" layoutY="290.0" mnemonicParsing="false" onAction="#crear_usuario" prefHeight="35.0" prefWidth="173.0" text="Crear Cuenta" textFill="#434040">
                     <font>
                         <Font name="Bauhaus 93" size="15.0" />
                     </font>
@@ -77,6 +77,6 @@
                 <Image url="@../resources/auriculares (1).png" />
             </image>
         </ImageView>
-      <Button fx:id="boton_cerrar" layoutX="435.0" layoutY="-1.0" mnemonicParsing="false" onAction="#cerrar_ventana" prefHeight="37.0" prefWidth="37.0" text="X" />
+      <Button fx:id="boton_cerrar" layoutX="438.0" layoutY="-1.0" mnemonicParsing="false" onAction="#cerrar_ventana" prefHeight="28.0" prefWidth="34.0" text="X" textFill="WHITE" />
     </children>
 </AnchorPane>

@@ -50,6 +50,15 @@ public class Usuario implements Serializable {
         this.contrasenia = contrasenia;
     }
 
+
+    public ListaCircular<Cancion> getPlayList() {
+        return playList;
+    }
+
+    public void setPlayList(ListaCircular<Cancion> playList) {
+        this.playList = playList;
+    }
+
     public Usuario() {
     }
 

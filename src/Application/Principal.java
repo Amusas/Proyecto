@@ -4,6 +4,7 @@ import Controller.Singleton;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,7 +32,7 @@ public class Principal extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Universidad");
+        this.primaryStage.setTitle("Umusic");
         this.primaryStage.setResizable(false);
         this.primaryStage.initStyle(StageStyle.UNDECORATED);
         mostrarVentanaPrincipal();
@@ -49,7 +50,10 @@ public class Principal extends Application{
 
             AnchorPane root = (AnchorPane) loader.load();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add("/Styles/Login.css");
             primaryStage.setScene(scene);
+            Image icon = new Image("/resources/auriculares (1).png");
+            primaryStage.getIcons().add(icon);
             primaryStage.show();
 
         } catch (Exception e) {
