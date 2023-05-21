@@ -65,6 +65,7 @@ public class Vista_Principal_Artista implements Initializable {
 
         // Create the scene and set it as the root of the primary stage
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/Styles/Artista.css");
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -88,6 +89,7 @@ public class Vista_Principal_Artista implements Initializable {
 
         // Create the scene and set it as the root of the primary stage
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/Styles/Login.css");
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

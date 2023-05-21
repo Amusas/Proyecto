@@ -1,0 +1,53 @@
+AnchorPane{
+    -fx-background-image: url('/resources/fondo.png');
+}
+Pane {
+    -fx-border-radius: 10;
+}
+
+#boton_anadir{
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-background-color: DarkCyan;
+}
+
+#boton_anadir:hover{
+    -fx-background-color: DarkTurquoise;
+}
+
+
+#boton_subir{
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-background-color: DarkCyan;
+}
+
+#boton_subir:hover{
+    -fx-background-color: DarkTurquoise;
+}
+
+#boton_volver{
+    -fx-background-color: transparent;
+}
+
+#boton_volver:hover{
+    -fx-background-color: Red;
+}
+
+#campo_artista{
+    -fx-background-color: -fx-control-inner-background;
+    -fx-effect: null;
+    -fx-background-insets: 0;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: transparent transparent skyblue transparent;
+}
+
+#campo_cancion{
+    -fx-background-color: -fx-control-inner-background;
+    -fx-effect: null;
+    -fx-background-insets: 0;
+    -fx-border-style: none none solid none;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: transparent transparent skyblue transparent;
+}

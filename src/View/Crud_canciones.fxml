@@ -13,7 +13,7 @@
    <children>
       <Pane layoutX="14.0" layoutY="33.0" prefHeight="267.0" prefWidth="376.0" style="-fx-background-color: white;">
          <children>
-            <Button layoutX="188.0" layoutY="183.0" mnemonicParsing="false" text="Añadir">
+            <Button fx:id="boton_anadir" layoutX="188.0" layoutY="183.0" mnemonicParsing="false" text="Añadir">
                <font>
                   <Font name="Bauhaus 93" size="12.0" />
                </font>
@@ -36,7 +36,7 @@
             <Image url="@../resources/CancionCrud.png" />
          </image>
       </ImageView>
-      <Button fx:id="boton_volver" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#volver" text="volver">
+      <Button fx:id="boton_volver" layoutX="26.0" layoutY="23.0" mnemonicParsing="false" onAction="#volver" text="volver" textFill="white">
          <font>
             <Font name="Bauhaus 93" size="13.0" />
          </font>

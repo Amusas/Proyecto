@@ -11,10 +11,10 @@
          <font>
             <Font name="Bauhaus 93" size="15.0" />
          </font></Button>
-        <Button fx:id="boton_cerrar" layoutX="137.0" layoutY="586.0" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="96.0" text="Cerrar Sesion">
+        <Button fx:id="boton_cerrar" layoutX="137.0" layoutY="586.0" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="96.0" text="Cerrar Sesion" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="12.0" />
          </font></Button>
-        <ListView fx:id="lista_canciones" layoutX="16.0" layoutY="54.0" prefHeight="518.0" prefWidth="339.0" />
+        <ListView fx:id="lista_canciones" layoutX="16.0" layoutY="54.0" prefHeight="518.0" prefWidth="339.0"/>
     </children>
 </AnchorPane>

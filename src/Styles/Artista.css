@@ -1,0 +1,21 @@
+AnchorPane{
+    -fx-background-image: url('/resources/fondo.png');
+}
+
+#boton_agregar{
+    -fx-background-insets: 0;
+    -fx-background-radius: 10;
+    -fx-background-color: DarkCyan;
+}
+
+#boton_agregar:hover{
+    -fx-background-color: DarkTurquoise;
+}
+
+#boton_cerrar{
+    -fx-background-color: transparent;
+}
+
+#boton_cerrar:hover{
+    -fx-background-color: Red;
+}

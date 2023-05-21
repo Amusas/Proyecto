@@ -1,8 +1,5 @@
 package Controller;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 import Librerias.ListaCircular;
 import Model.Cancion;
@@ -16,26 +13,29 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import javazoom.jl.player.advanced.AdvancedPlayer;
-import javazoom.jl.player.advanced.PlaybackEvent;
-import javazoom.jl.player.advanced.PlaybackListener;
-import javazoom.jlgui.basicplayer.BasicPlayer;
-import javazoom.jlgui.basicplayer.BasicPlayerException;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Vista_Principal_Usuario implements Initializable {
 
-    AdvancedPlayer player;
+    Player player;
+
+    private FileInputStream fis;
+    private long pauseLocation;
+    private long songTotalLength;
 
     private int framePos = 0;
 
-    private boolean pausado = false;
+    private boolean pausado = true;
     @FXML
     private Slider time_slider;
 
@@ -105,23 +105,26 @@ public class Vista_Principal_Usuario implements Initializable {
 
 
     @FXML
-    void reproducir() {
-            if (!pausado) {
+    public void reproducir(ActionEvent event) {
+        try {
+            fis = new FileInputStream("/home/andrew/IdeaProjects/ProyectoFinal/src/Recursos/dead.mp3");
+            Reproductor.setInstance("/home/andrew/IdeaProjects/ProyectoFinal/src/Recursos/dead.mp3");
+            songTotalLength = fis.available();
+            if (pausado){
                 new Thread(() -> {
-                    try {
-                        BasicPlayer player1 = new BasicPlayer();
-                        player1.open(new File("C:\\Users\\HP 245 RYZEN 3\\IdeaProjects\\Umusic\\src\\Recursos\\one.wav"));
-                    } catch (BasicPlayerException e) {
-                        throw new RuntimeException(e);
-                    }
+                    Reproductor.resume();
                 }).start();
-
-            } else {
-                player.stop();
                 pausado = false;
+            }else {
+                Reproductor.pause();
+                pausado = true;
             }
+        } catch (FileNotFoundException | JavaLayerException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
+    }
 
     /*
     private void configureTimeSlider(AdvancedPlayer mediaPlayer) {

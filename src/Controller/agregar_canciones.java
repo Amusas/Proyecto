@@ -86,6 +86,7 @@ public class agregar_canciones implements Initializable {
 
         // Create the scene and set it as the root of the primary stage
         Scene scene = new Scene(root);
+
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

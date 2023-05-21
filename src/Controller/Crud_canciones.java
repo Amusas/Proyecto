@@ -76,6 +76,7 @@ public class Crud_canciones {
 
         // Create the scene and set it as the root of the primary stage
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/Styles/Artista.css");
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -94,6 +95,8 @@ public class Crud_canciones {
 
         // Create the scene and set it as the root of the primary stage
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/Styles/Canciones.css");
+
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

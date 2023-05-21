@@ -25,5 +25,6 @@
     <orderEntry type="library" name="slf4j-simple-2.0.7" level="project" />
     <orderEntry type="library" name="jlayer-1.0.1.4" level="project" />
     <orderEntry type="library" name="slf4j-api-1.7.12" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
   </component>
 </module>
